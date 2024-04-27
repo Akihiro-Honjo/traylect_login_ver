@@ -1,0 +1,22 @@
+{% extends "base.html" %}
+{% block content %}
+<h1>TODO</h1>
+    <a href="/regist" role="button">新規登録</a>
+    <a href="/logout" role="button">ログアウト</a>
+    {% if todo_list == [] %}
+        <p>todoリストは登録されていません。</p>    
+    {% else %}
+        <table border="1">
+            <tr>
+                <th>title</th>
+                <th>body</th>
+            </tr>
+       {% for todo in todo_list %}
+            <tr>
+                <td>{{todo.title}}</td>
+                <td>{{todo.body}}</td>
+            </tr>            
+       {% endfor %}
+        </table>
+    {% endif %}
+{% endblock %}
